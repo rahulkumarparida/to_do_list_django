@@ -20,7 +20,7 @@ Check out the live app here:
 - ✅ Mark Tasks as Completed
 - ✅ PostgreSQL integration (production)
 - ✅ Static files served with WhiteNoise
-- ✅ Responsive & Clean UI using Bootstrap 5 and Django Crispy Forms
+
 
 ---
 
