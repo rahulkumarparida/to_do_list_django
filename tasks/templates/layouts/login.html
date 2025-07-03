@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% block title %}Log in{% endblock %}
+{% block content %}
+    <div class="formContainer">
+      <div class="Form">
+           
+        <form action="" method="post">
+          <div class="head gradient-text"><h2>Login your account</h2></div>  
+          {% csrf_token %} 
+          {% if error %}
+            <p class="Warning">Error : {{ error}}</p>
+          {% endif %}
+          <label for="email"><div>Email:</div> <div>{{ form.email }}</div> </label>
+          <label for="password"><div>Password:</div> <div>{{ form.password }} </div></label>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+    
+{% endblock %}

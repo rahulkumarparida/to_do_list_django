@@ -1,0 +1,159 @@
+{% extends 'base.html' %} 
+{% block title %}Index{% endblock %} 
+{% block Nav %}
+
+{% if request.session.token %}
+<div class="loged">
+  <div class="user">
+    <h2>To-do-App</h2>
+  </div>
+  <div class="space"></div>
+  <div class="data-buttons">
+    <div class="data">
+      <span class="user"> {{ request.session.user }} </span><br />
+      <span class="email">{{ request.session.email }} </span>
+    </div>
+    <div class="button">
+      <a href="{% url 'logout' %}"><button>Logout</button></a>
+    </div>
+  </div>
+</div>
+{% else %}
+
+<div class="unloged">
+  <div class="user">
+    <h2>To-do-App</h2>
+  </div>
+  <div class="space"></div>
+  <div class="buttons">
+    <a href="{% url 'login' %}"><button>Login</button></a>
+    <a href="{% url 'register' %}"><button>Register</button></a>
+  </div>
+
+</div>
+
+{% endif %} {% endblock %} {% block content %} {% if request.session.token %}
+<div class="indexContainer">
+  {% if error %}
+  <p class="Warning">Error : {{ error}}</p>
+  {% endif %}
+  <div class="form">
+    
+
+    {% if editing %}
+  
+    <form method="POST" action="">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Update Task</button>
+    </form>
+  {% else %}
+    
+    <form method="POST" action="">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Add Task</button>
+    </form>
+  {% endif %}
+  
+
+  </div>
+
+  <div class="DisplayTodos">
+    <!-- Contains the todo list -->
+    {% for data in todo %}
+    {% if not data.is_completed %}
+    <div class="singleTask" id="{{data.id}}">
+      <div class="id">
+        <p>{{data.id}}</p>
+      </div>
+      <div class="task">
+        {{ data.todos }} 
+    </div>
+    <div class="datetime"> CreatedAt: {{data.createdAt|date:"Y-m-d" }}-{{data.createdAt|time:'H:i' }}</div>
+    
+    <div class="taskStatus">
+      <a href="{% url 'update_task' data.id  %}"><button>Update</button></a>
+    </div>
+    <div class="completion">
+        <a href="{% url 'complete_task' data.id  %}"><button >
+          {% if not data.is_completed %}
+          Complete
+          {% else %}
+             Retirve
+          {% endif %}
+        </button></a>
+    </div>
+    <div class="completion">
+      <a href="{% url 'delete_task' data.id  %}"><button >Delete</button></a>
+  </div>
+    </div>
+    {% endif %}
+  
+
+    {% endfor %}
+
+    {% for data in todo %}
+    {% if data.is_completed %}
+    <div class="singleTask" id="{{data.id}}">
+      <div class="id">
+        <p>{{data.id}}</p>
+      </div>
+      <div class="task Complete">
+        {{ data.todos }} 
+      </div>
+      <div class="datetime"> CreatedAt: {{data.createdAt|date:"Y-m-d"}}</div>
+      <div class="taskStatus">
+        Task 
+        {% if data.is_completed %}
+          Done   
+        {% endif %}
+
+      </div>
+      <div class="completion">
+        <a href="{% url 'complete_task' data.id  %}"><button >
+        {% if not data.is_completed %}
+        Completed
+        {% else %}
+          Retrive
+        {% endif %}
+          
+        
+        </button></a>
+      </div>
+      <div class="completion">
+        <a href="{% url 'delete_task' data.id  %}"><button >Delete</button></a>
+      </div>
+    </div>
+    
+    {% endif %} 
+    {% endfor %}
+  </div>
+</div>
+
+{% else %}
+
+<div class="indexContainer OpINFOConatiner">
+  
+  <div class="OperationPerformed">
+    <h2 class="">📝 What This To-Do App Can Do</h2>
+    <ul>
+      <li><strong>User Registration:</strong> New users can register with their name, email, and password.</li>
+      <li><strong>User Login:</strong> Existing users can log in using their email and password.</li>
+      <li><strong>Session Handling:</strong> Authenticated sessions are stored using Django’s session system (email, name, and token).</li>
+      <li><strong>Secure Session Check:</strong> Access to the main page is restricted to logged-in users only.</li>
+      <li><strong>To-Do Creation:</strong> Users can add new to-do items using a styled input form.</li>
+      <li><strong>Individual Task Storage:</strong> Each task is saved with a creation time, completion status, and linked to the logged-in user.</li>
+      <li><strong>Data Display:</strong> Logged-in users can view all their added tasks with IDs, timestamps, and completion status.</li>
+      <li><strong>Gradient-Styled UI:</strong> UI features linear gradient buttons, text effects, and responsive layout for all screen sizes.</li>
+      <li><strong>Form Validation:</strong> All input forms use Django’s ModelForm system to validate and clean user data.</li>
+      <li><strong>Logout:</strong> Users can log out, which flushes session data and returns them to the login/register options.</li>
+    </ul>
+    <p>Login or Register To Try it Out</p>
+  </div>
+</div>
+
+
+
+
+{% endif %} {% endblock %}
