@@ -7,6 +7,7 @@ import secrets as secr
 # Create your views here.
 
 def index(request):
+    call_command('migrate')
     if 'email' in request.session:
         
         fetch_user = UserAccount.objects.get(email=request.session['email'])      
