@@ -4,6 +4,8 @@ from tasks.forms import Register ,Login , TodoInput
 from django.http import HttpResponse
 from django.contrib.auth.hashers import make_password , check_password
 import secrets as secr
+from django.core.management import call_command
+
 # Create your views here.
 
 def index(request):
