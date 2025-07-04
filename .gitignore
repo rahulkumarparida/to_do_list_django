@@ -2,6 +2,11 @@
 __pycache__/
 *.py[cod]
 
+
+#staticfiles
+staticfiles/
+
+
 # Django stuff
 *.log
 *.pot
