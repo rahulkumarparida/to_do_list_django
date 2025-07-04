@@ -1,0 +1,285 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+body,html{ 
+    background-color: #9696f7;
+    color: white;
+}
+
+
+
+nav > .loged , .unloged{
+    height: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: rgb(15, 17, 66);
+}
+.data-buttons{
+    display: flex;
+}
+.data-buttons > div{
+    margin: 8px;
+}
+button{
+    border: none;
+    padding: 12px 15px;
+   
+    border-radius: 12px;
+    background-color: transparent;
+    color: white;
+    transition: all ease 0.3s;
+}
+button:hover{
+    background-color: rgb(94, 179, 253);
+    color:rgb(0, 6, 95);
+    
+}
+
+.indexContainer{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+.form{
+    width: 100vw;
+    height: 60%;
+    padding: 40px;
+
+    display: flex;
+    justify-content: center;
+
+}
+.form > form {
+    width: auto;
+}
+
+
+.form > form > div >button{
+     margin-left: 18px;
+    margin-top: 8px;
+    border: 1px solid rgb(33, 2, 170);
+}
+form{
+    height: 80%;
+    padding: 20px;
+    border: 1px solid #3232ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #0000ba96;
+}
+input[name="todos"] {
+    width: 50vw;
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    margin: 20px;
+}
+
+
+
+.DisplayTodos{
+    height: auto;
+    width: 80%;
+    padding: 15px;
+    border: 1px solid rgb(0, 0, 255);
+    background-color: #0000ad90;
+    border-radius: 8px;
+}
+
+
+.singleTask{
+    padding: 8px 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    border: 2px solid rgb(22, 107, 254);
+    margin: 15px;
+    border-radius: 8px;
+    transition: all ease 0.4s;
+}
+.singleTask:hover{
+    box-shadow: 5px 5px 8px #231388;
+    background-color:#564cb390 ;
+}
+
+
+.completion > button:hover  {
+    background-color: #3e03ffcd;
+    color:#fff;
+    
+}
+
+.indexContainer>  div{
+    margin: 5px;
+}
+
+.id >p {
+    text-align: center;
+}
+
+
+.formContainer{
+    height: 800px;
+
+    padding: 40px;
+}
+.head{
+    text-align: center;
+    padding: 20px;
+   
+}
+
+.head > h2{
+    font-size: xx-large;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #a600ff, rgb(224, 224, 224)); 
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.Form , .Form > form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  
+}
+form{
+    height: auto;
+    width: 60vw;
+}
+input{
+    width: 30vw;
+    padding: 9px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    transition: all ease 0.4s;
+    scale: 0.8;
+}
+ input:active , input:focus{
+    scale: 1;
+    box-shadow: 5px 5px 10px #231388 ;
+}
+
+
+.buttonform{
+    width: 0%;
+    height: 0%;
+    padding: 0px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: transparent;
+    
+}
+
+.Sign{
+padding: 6px;
+
+}
+
+.Warning{
+    height: auto;
+    width: auto;
+    padding: 8px;
+    margin: 10px;
+    background-color: #ff5959e3;
+    border: 2px solid red;
+    border-radius: 10px;
+}
+
+
+
+.OperationPerformed{
+    
+    border: 1px solid blue;
+    padding: 25px;
+    margin: 40px;
+    word-break: break-all;
+    border-radius: 10px;
+    background-color: rgba(91, 26, 255, 0.695);
+}
+.OpINFOConatiner{
+    margin-top: 70px;
+    height: 70vh;
+}
+ul > li{
+    margin: 5px;
+    padding: 4px;
+}
+
+
+.OperationPerformed > p{
+    text-align: center;
+    padding: 8px;
+    margin: 9px;
+    border: 1px solid #d000ff;
+    border-radius: 15px;
+    background-color: #3232ff8b;
+}
+
+
+.Complete{
+    text-decoration: line-through;
+    color: red;
+    
+}
+
+@media (max-width: 768px) {
+h2{
+    font-size: medium;
+    margin-left: -10px;
+}
+.AddBTn{
+    margin-top: 15px;
+} 
+.datetime{
+    font-size: 0px;
+}
+
+
+.singleTask{
+    padding: 8px 20px;
+   
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    flex-wrap: wrap;
+    word-break: break-all;
+    margin: 15px;
+
+}
+.singleTask>div{
+    margin: 5px;
+}
+input{
+    width: 40vw;
+    padding: 5px;
+    margin: 7px;
+   
+}
+
+
+}
+@media (max-width: 480px) {
+    .datetime{
+    font-size: 0px;
+}
+}
+
